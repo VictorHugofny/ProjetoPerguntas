@@ -52,6 +52,13 @@ app.get("/pergunta/:id",(req,res)=>{
     var id = req.params.id;
     Pergunta.findOne({
         where: {id: id} //buscar o mesmo id que foi escolhido pelo usuario
-    }) //buscar um dado do banco de dados
+    }).then(pergunta=>{ // pegar pergunta
+        if (pergunta != undefined){  //ver se ela existe
+            res.render("pergunta");
+        }else{ // não encontrada
+            res.redirect("/")
+        }
+
+    }); //buscar um dado do banco de dados
 }); // rota com parametro
 app.listen(8080,()=>{console.log("App rodando!");});
