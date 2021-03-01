@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(246, 244, 244);
+}
+#formulario-pergunta{
+    margin-top: 5vh;
+}
+#teste{
+    width: 10000;
+    height: 10000px;
+    background-image: url(/img/PNG.png);
+}
+
+
