@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");//pegar os dados do formulario e passar para javascript
 const connection = require("./database/database");
-const pergunta = require("./database/Pergunta");
 const Pergunta = require("./database/Pergunta"); // perguntas dentro do banco de dados
 
 //DATABASE
@@ -54,7 +53,8 @@ app.get("/pergunta/:id",(req,res)=>{
         where: {id: id} //buscar o mesmo id que foi escolhido pelo usuario
     }).then(pergunta=>{ // pegar pergunta
         if (pergunta != undefined){  //ver se ela existe
-            res.render("pergunta");
+            res.render("pergunta",{ // renderizar a pagina passando a variavel pergunta
+            pergunta: pergunta});
         }else{ // não encontrada
             res.redirect("/")
         }
