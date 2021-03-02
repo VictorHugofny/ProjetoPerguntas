@@ -1,4 +1,4 @@
-const Sequelize = require("Sequelize");
+const Sequelize = require('sequelize');
 const connection = require("./database");
 
 const Resposta = connection.define("respostas",{
@@ -10,6 +10,6 @@ const Resposta = connection.define("respostas",{
         type: Sequelize.INTEGER,
         allowNull:false
     }
-})
+});
 Resposta.sync({force:false}); // sincronizar com o banco
 module.exports = Resposta;

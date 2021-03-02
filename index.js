@@ -54,12 +54,30 @@ app.get("/pergunta/:id",(req,res)=>{
         where: {id: id} //buscar o mesmo id que foi escolhido pelo usuario
     }).then(pergunta=>{ // pegar pergunta
         if (pergunta != undefined){  //ver se ela existe
-            res.render("pergunta",{ // renderizar a pagina passando a variavel pergunta
-            pergunta: pergunta});
+            Resposta.findAll({
+                where: {perguntaId: pergunta.id},
+                order: [['id','DESC']] //ORDENAR AS RESPOSTAS
+            }).then(respostas =>{
+                res.render("pergunta",{ // renderizar a pagina passando a variavel pergunta
+                 pergunta: pergunta,
+                 respostas: respostas
+             });
+         });      
         }else{ // não encontrada
             res.redirect("/")
         }
 
     }); //buscar um dado do banco de dados
 }); // rota com parametro
+
+app.post("/responder",(req,res)=>{ //receber dados direto do formulario
+    var corpo = req.body.corpo;
+    var perguntaId = req.body.pergunta;
+    Resposta.create({
+        corpo: corpo,
+        perguntaId: perguntaId,
+    }).then(()=>{
+        res.redirect("/pergunta/"+perguntaId); //ir para a pagina do id da pergunta
+    });
+});
 app.listen(8080,()=>{console.log("App rodando!");});

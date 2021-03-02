@@ -1,4 +1,4 @@
-const Sequelize = require("Sequelize");
+const Sequelize = require('sequelize');
 const connection = require("./database");
 
 // estrutura do banco de dados - tabela
