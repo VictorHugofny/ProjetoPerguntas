@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");//pegar os dados do formulario e passar para javascript
 const connection = require("./database/database");
 const Pergunta = require("./database/Pergunta"); // perguntas dentro do banco de dados
+const Resposta = require("./database/Resposta")
 
 //DATABASE
 connection
