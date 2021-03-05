@@ -1,21 +1,23 @@
 <%- include ('partials/header.ejs') %>
 <body>
 <%- include ('partials/nevbar.ejs') %>
-<div class="container">
+<div class="container" >
 <hr>
-<h1> Perguntas</h1>
+<h1 style="color:rgb(0, 234, 255)">PERGUNTA-AI!!</h1>
 <hr>
 <a href="/perguntar" class="btn btn-dark">Perguntar</a>
 <hr>
     <% perguntas.forEach(pergunta=>{ %>
         <br>
 
-    <div class="card">
+    <div class="card" >
         <div class="cardbody">
-        <h4><%=pergunta.titulo %></h4> 
+        <h1><%=pergunta.titulo %></h1>
+        <h4><%=pergunta.descricao %></h4> 
+
     </div>
-        <div class="card-footer">
-           <a href="/pergunta/<%= pergunta.id%>"><button class= "btn btn-primary" >Responder</button> </a>
+        <div class="card-footer" >
+           <a  href="/pergunta/<%= pergunta.id%>"><button class= "btn btn-primary" >Responder</button> </a>
         </div>       
      </div>
   <%  }) %>

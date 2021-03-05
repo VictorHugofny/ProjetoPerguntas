@@ -1,13 +1,29 @@
 body{
-    background-color: rgb(246, 244, 244);
+    background-image: url(../img/preto.png);
 }
+
 #formulario-pergunta{
-    margin-top: 5vh;
+    margin-top: 15vh;
 }
 #teste{
     width: 10000;
     height: 10000px;
-    background-image: url(/img/PNG.png);
+  
 }
 
+h1{
+    color:rgb(107, 107, 255);
+    background-color: rgb(0, 1, 2);
+}
+h4{
+    color:rgb(0, 183, 255);
+    background-color: rgb(0, 0, 0);
+}
+.cardbody{
+    background-color: rgb(0, 0, 0);
+
+}
+#button{
+    background-color: chartreuse;
+}
 

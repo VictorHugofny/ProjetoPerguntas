@@ -29,8 +29,7 @@ Pergunta.findAll({raw: true, order:[ //RECEBER AS PERGUNTAS DO BANCO DE DADOS
     res.render("index",{
         perguntas: perguntas //recebendo pergunta e mandando para html
     });
-})         
-
+})      
 });
 
 app.get("/perguntar",(req,res)=>{
@@ -39,6 +38,14 @@ res.render("perguntar");
 
 app.post("/salvarpergunta",(req,res)=>{ // usar para receber dados de formulario
     var titulo = req.body.titulo; //receber os dados do html na variavel
+ 
+    if(titulo == ""){
+        res.redirect("/perguntar");
+    return;
+    }
+   
+    
+    res.redirect("/");
     var descricao = req.body.descricao; //receber os dados do formulario
     Pergunta.create({               // insert, salvar, colocar
         titulo: titulo,
@@ -73,6 +80,10 @@ app.get("/pergunta/:id",(req,res)=>{
 app.post("/responder",(req,res)=>{ //receber dados direto do formulario
     var corpo = req.body.corpo;
     var perguntaId = req.body.pergunta;
+    if(corpo == ""){
+        res.redirect("/pergunta/"+perguntaId);
+        return;
+    }
     Resposta.create({
         corpo: corpo,
         perguntaId: perguntaId,
@@ -80,4 +91,8 @@ app.post("/responder",(req,res)=>{ //receber dados direto do formulario
         res.redirect("/pergunta/"+perguntaId); //ir para a pagina do id da pergunta
     });
 });
+
+
 app.listen(8080,()=>{console.log("App rodando!");});
+
+
