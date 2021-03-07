@@ -12,18 +12,17 @@ body{
 }
 
 h1{
-    color:rgb(107, 107, 255);
-    background-color: rgb(0, 1, 2);
+    color:rgb(0, 0, 255);
+    
 }
 h4{
-    color:rgb(0, 183, 255);
-    background-color: rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
+    
 }
 .cardbody{
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(18, 37, 146, 0.144);
 
 }
-#button{
-    background-color: chartreuse;
+.card-footer{
+    background-color: rgb(167, 173, 253);
 }
-
