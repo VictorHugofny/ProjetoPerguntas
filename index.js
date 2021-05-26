@@ -94,5 +94,3 @@ app.post("/responder",(req,res)=>{ //receber dados direto do formulario
 
 
 app.listen(8080,()=>{console.log("App rodando!");});
-
-
